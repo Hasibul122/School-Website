@@ -1,0 +1,987 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(transparent,#30ff00);
+    border-radius: 6px;
+    transition: 0.4s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(transparent,#b8251a);
+}
+
+.container {
+    min-height: 110vh; /*Change the height of the page */
+    width: 100%;
+    background-color: #485461;
+    background-image: linear-gradient(135deg, #485461 0%, #28313b 74%);
+    overflow-x: hidden;
+    transform-style: preserve-3d;
+    
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    height: 3rem;
+    /* background-color: red; It can detect your actual position in page */
+}
+
+.manu {
+    max-width: 72rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+/* .logo {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 4rem;
+}
+
+.logo span {
+    font-weight: 300;
+} */
+
+img {
+    width: 80px;
+    height: 80px;
+    opacity: 0.6;
+    
+}
+.hamburger-manu {
+    height: 4rem;
+    width: 3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    
+}
+
+.bar {
+    width: 1.9rem;
+    height: 1.5px;
+    border-radius: 2px;
+    background-color: #eee;
+    transition: 0.5s;
+    position: relative;
+}
+
+/* Setting the width and height inherit so
+they'll take the width and height of their parent(".bar") */
+.bar::before,
+.bar::after {
+    content: "";
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: #eee;
+    transition: 0.5s;
+}
+
+.bar::before {
+    transform: translateY(-9px);
+}
+
+.bar::after {
+    transform: translateY(9px);
+}
+
+.main {
+    position: relative;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 5;
+    overflow: hidden; 
+    transform-origin: left;
+    transform-style: preserve-3d;
+    transition: 0.5s;
+  }
+  
+header {
+    min-height: 100vh;
+    width: 100%;
+    background: url("edu.jpg") no-repeat top center / cover;
+    position: relative;
+    /* background-color: green; */
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(43, 51, 59, 0.8); /* Creates a cover over edu.jpg which works as transparent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.inner {
+    max-width: 36rem;
+    height: 16rem;
+    text-align: center;
+    color: #fff;
+    padding: 0 2rem;
+    /* background-color: green;   */
+    /*You can see the actual area of inner class using this */
+}
+
+
+h1 {
+    text-transform: uppercase;
+}
+
+.section {
+    background-color: white;
+}
+
+
+/* .btn {
+    margin-top: 1rem;
+    padding: 0.6rem 1.8rem;
+    background-color: #1179e7;
+    border: none;
+    border-radius: 25px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.3s;
+} */
+
+
+.btn {
+    width: 150px;
+    height: 49px;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: #5995fd;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 10px 0;
+    transition: .5s;
+}
+
+
+.btn:hover {
+    background-color: #b4a72e;
+    transform: scale(1.2);
+}
+
+a,button {
+    text-decoration: none; 
+    cursor: pointer;
+}
+/* Hamburger Menu Rotation */
+.container.active .bar {
+    transform: rotate(360deg);
+    background-color: transparent;
+}
+
+.container.active .bar::before {
+    transform: translateY(0) rotate(45deg);
+}
+
+.container.active .bar::after {
+    transform: translateY(0) rotate(-45deg);
+}
+
+.container.active .main {
+    animation: main-animation 0.5s ease;
+    cursor: pointer;
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5); /* scale(0.5) = Main Contant size when hamburger-manu is clicked. It will shrink.*/
+    /* perspective defines how far the elemnt is away from the user */
+    /* translateZ pull it towands us by some defiined sizes */
+}
+
+@keyframes main-animation {
+    from {
+        transform: translate(0);
+    }
+
+    to {
+        transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+    }
+}
+
+.links {
+    position: absolute;
+    width: 30%; /*It can be changed in mobile version */
+    right: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 2;
+    /* background-color: green; */
+    /*It shows the space of links class */
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+ul {
+    list-style: none;
+}
+
+.links a {
+    text-decoration: none;
+    color: #eee;
+    padding: 0.7rem 0;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: hide 0.5s forwards ease;
+}
+
+/* Footer Copyright */
+footer {
+    background: #111;
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+}
+
+footer .foot-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* background-color: blue; */
+}
+
+footer .foot-container .sec {
+    margin-right: 30px;
+    /* background-color: green; */
+}
+
+footer .foot-container .sec.abouts {
+    width: 40%;   
+}
+
+footer .foot-container h2 {
+    position: relative;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+footer .foot-container h2::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #f00;
+}
+
+footer p {
+    color: #999;
+}
+
+footer .foot-container .sec.abouts p a {
+    text-decoration: none;
+    color: #296569;
+    transition: 0.5s;
+}
+
+footer .foot-container .sec.abouts p a:hover {
+    color: #b4a72e;
+    transform: scale(1.2);
+}
+
+.sci {
+    margin-top: 20px;
+    display: flex;
+}
+
+.sci li {
+    list-style: none;
+}
+
+.sci li a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: 0.5s;
+}
+
+.sci li a:hover {
+    background: #bdae2a;
+}
+
+.sci li a .fab {
+    color: #d42828;
+    font-size: 20px;
+}
+
+.quickLinks {
+    position: relative;
+    width: 25%;
+}
+
+.quickLinks li {
+    list-style: none;
+}
+
+.quickLinks ul li a {
+    color: #999;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 10px;
+    transition: 0.4s;
+}
+
+.quickLinks ul li a:hover {
+    color: #fff;
+}
+
+.info {
+    letter-spacing: 1px;   
+}
+
+.contact {
+    width: calc(35% - 60px);
+    margin-right: 0 !important;
+}
+
+.contact .info {
+    position: relative;
+}
+
+.contact .info li {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.contact .info li span:nth-child(1) {
+    color: #b4a72e;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.contact .info li span {
+    color: #999;
+    transition: 0.5s;
+}
+
+.contact .info li a {
+    color: #999;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.contact .info li a:hover {
+    color: #fff;
+}
+
+.contact .info li span:hover {
+    color: #fff;
+}
+
+.copyright {
+    width: 100%;
+    background: #181818;
+    padding: 8px 100px;
+    text-align: center;
+    color: #999;
+}
+
+/* Footer Media */
+@media (max-width: 991px) {
+    footer {
+        padding: 40px;
+    }
+    footer .foot-container {
+        flex-direction: column;
+    }
+
+    footer .foot-container .sec {
+        margin-right: 0;
+        margin-bottom: 40px;
+    }
+
+    footer .foot-container .sec.abouts, .quickLinks, .contact {
+        width: 100%;
+    }
+
+    .copyright {
+        
+        padding: 8px 40px;
+        
+    }    
+}
+
+@media (max-width: 600px) {
+    .copyright {
+        padding: 8px 20px;
+    }
+}
+
+/* Link Hover */
+.links a:hover {
+    color: #fcb103;
+}
+
+.container.active .links a {
+    animation: appear 0.5s forwards ease var(--i);
+}
+
+/* Sub-Menu Settings */
+.sub-menu a {
+    text-decoration: none;
+    color: #eee;
+    padding: 0.2rem .2rem;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: hide 0.5s forwards ease;
+}
+
+.container.active .links.sub-menu a{
+    animation: appear 0.5s forwards ease var(--i);
+}
+
+.links .item .menu-btn .drop-down {
+    /* float: right; */
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.links .item .sub-menu {
+    background: #2d2c33;   
+    overflow: hidden;
+    transition: 0.3s;
+    
+}
+
+.links .item .sub-menu a {
+    display: block;
+    position: relative;
+    white-space: nowrap;
+    font-size: 15px;
+    padding: 12px;
+    border-bottom: 1px solid #8fc5e9;
+    transition: 0.3s;
+    transition-property: background;
+}
+
+.links .item .sub-menu a:hover {
+    background: rgb(77, 34, 34);
+
+}
+
+.links .item .sub-menu i {
+    padding-right: 10px;
+    font-size: 12px;
+}
+
+/* Link Animation */
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}  
+
+@keyframes hide {
+    from {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+} 
+
+/* Shadow Position */
+.shadow {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;   
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: 0.5s;
+    background-color: white;
+}
+
+.shadow.one {
+    z-index: -1;
+    opacity: 0.15;
+}
+
+.shadow.two {
+    z-index: -2;
+    opacity: 0.1;
+}
+
+.container.active .shadow.one {
+    animation: shadow-one 0.6s ease-out;
+    transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+}
+
+/* Shadow Animation */
+@keyframes shadow-one {
+    0% {
+        transform: translate(0);
+    }
+
+    5% {
+        transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+    }
+
+    100% {
+        transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+    }
+}
+
+.container.active .shadow.two {
+    animation: shadow-two 0.6s ease-out;
+    transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+}
+
+@keyframes shadow-two {
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+    }
+
+    100% {
+        transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+    }
+}
+
+/* Hover Main Content */
+.container.active .main:hover + .shadow.one {
+    transform: perspective(1300px) rotateY(20deg) translateZ(230px) scale(0.5);
+}
+
+.container.active .main:hover {
+    transform: perspective(1300px) rotateY(20deg) translateZ(340px) scale(0.5);
+}
+
+
+/* Mobile View */
+@media (max-width: 830px) {
+    .links {
+        position: absolute;       
+        width: 30%; /*It can be changed in mobile version */
+        right: 0;
+        top: 0%;
+        height: 100vh;
+        z-index: 2;
+        /* background-color: green; */
+        /*It shows the space of links class */
+        display: flex;
+        justify-content: center;
+        align-items: center;   
+    }
+
+    
+    .links a {
+        text-decoration: none;
+        color: #eee;
+        padding: 0.7rem 0;
+        display: inline-block;
+        font-size: 0.9rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: .8px;
+        transition: 0.3s;
+        opacity: 0;
+        transform: translateY(10px);
+        animation: hide 0.5s forwards ease;
+    }
+
+    .links .item .sub-menu a {
+        display: block;
+        position: relative;
+        white-space: nowrap;
+        font-size: 12px;
+        padding: 10px;
+        border-bottom: 1px solid #8fc5e9;
+        transition: 0.3s;
+        transition-property: background;
+    }
+
+    .container.active .main {
+        animation: main-animation 0.5s ease;
+        cursor: pointer;
+        transform: perspective(1000px) rotateY(20deg) translateZ(280px) scale(0.35); /* scale(0.5) = Main Contant size when hamburger-manu is clicked. It will shrink.*/
+        /* perspective defines how far the elemnt is away from the user */
+        /* translateZ pull it towands us by some defiined sizes */
+    }
+
+    @keyframes main-animation {
+        from {
+            transform: translate(0);
+        }
+    
+        to {
+            transform: perspective(1000px) rotateY(20deg) translateZ(280px) scale(0.35);
+        }
+    }
+
+    .container.active .shadow.one {
+        animation: shadow-one 0.6s ease-out;
+        transform: perspective(1000px) rotateY(20deg) translateZ(185px) scale(0.35);
+    }
+    @keyframes shadow-one {
+        0% {
+            transform: translate(0);
+        }
+    
+        5% {
+            transform: perspective(1000px) rotateY(20deg) translateZ(280px) scale(0.35);
+        }
+    
+        100% {
+            transform: perspective(1000px) rotateY(20deg) translateZ(185px) scale(0.35);
+        }
+    }
+
+    .container.active .shadow.two {
+        animation: shadow-two 0.6s ease-out;
+        transform: perspective(1000px) rotateY(20deg) translateZ(100px) scale(0.35);
+    }
+
+    @keyframes shadow-two {
+        0% {
+            transform: translate(0);
+        }
+    
+        20% {
+            transform: perspective(1000px) rotateY(20deg) translateZ(280px) scale(0.35);
+        }
+    
+        100% {
+            transform: perspective(1000px) rotateY(20deg) translateZ(100px) scale(0.35);
+        }
+    }
+
+    /* Hover Main Content */
+    .container.active .main:hover + .shadow.one {
+        transform: perspective(1000px) rotateY(20deg) translateZ(200px) scale(0.35);
+    }
+
+    .container.active .main:hover {
+        transform: perspective(1000px) rotateY(20deg) translateZ(290px) scale(0.35);
+    }
+    
+}
+
+@media (max-width: 660px) {
+    .links {
+        width: 35%;
+    }
+}
+
+@media (max-width: 572px) {
+    .bar {
+        width: 1.6rem;
+        height: 1.5px;
+        border-radius: 2px;
+        background-color: #eee;
+        transition: 0.5s;
+        position: relative;
+    }
+    .links a {
+        text-decoration: none;
+        color: #eee;
+        padding: 0.65rem 0;
+        display: inline-block;
+        font-size: 0.65rem;
+        font-weight: 260;
+        text-transform: uppercase;
+        letter-spacing: .7px;
+        transition: 0.3s;
+        opacity: 0;
+        transform: translateY(10px);
+        animation: hide 0.5s forwards ease;
+    }
+
+    .links .item .sub-menu a {
+        display: block;
+        position: relative;
+        white-space: nowrap;
+        font-size: 9px;
+        padding: 7px;
+        border-bottom: 1px solid #8fc5e9;
+        transition: 0.3s;
+        transition-property: background;
+    }
+
+    .container.active .main {
+        animation: main-animation 0.5s ease;
+        cursor: pointer;
+        transform: perspective(1600px) rotateY(20deg) translateZ(250px) scale(0.35); /* scale(0.5) = Main Contant size when hamburger-manu is clicked. It will shrink.*/
+        /* perspective defines how far the elemnt is away from the user */
+        /* translateZ pull it towands us by some defiined sizes */
+    }
+
+    @keyframes main-animation {
+        from {
+            transform: translate(0);
+        }
+    
+        to {
+            transform: perspective(1600px) rotateY(20deg) translateZ(250px) scale(0.35);
+        }
+    }
+
+    .container.active .shadow.one {
+        animation: shadow-one 0.6s ease-out;
+        transform: perspective(1600px) rotateY(20deg) translateZ(150px) scale(0.35);
+    }
+    @keyframes shadow-one {
+        0% {
+            transform: translate(0);
+        }
+    
+        5% {
+            transform: perspective(1600px) rotateY(20deg) translateZ(250px) scale(0.35);
+        }
+    
+        100% {
+            transform: perspective(1600px) rotateY(20deg) translateZ(150px) scale(0.35);
+        }
+    }
+
+    .container.active .shadow.two {
+        animation: shadow-two 0.6s ease-out;
+        transform: perspective(1600px) rotateY(20deg) translateZ(70px) scale(0.35);
+    }
+
+    @keyframes shadow-two {
+        0% {
+            transform: translate(0);
+        }
+    
+        20% {
+            transform: perspective(1600px) rotateY(20deg) translateZ(250px) scale(0.35);
+        }
+    
+        100% {
+            transform: perspective(1600px) rotateY(20deg) translateZ(70px) scale(0.35);
+        }
+    }
+
+    /* Hover Main Content */
+    .container.active .main:hover + .shadow.one {
+        transform: perspective(1600px) rotateY(20deg) translateZ(170px) scale(0.35);
+    }
+
+    .container.active .main:hover {
+        transform: perspective(1600px) rotateY(20deg) translateZ(270px) scale(0.35);
+    }
+}
+
+@media (max-width: 400px) {
+    .links {
+        width: 38%;
+    }
+    .container.active .main {
+        animation: main-animation 0.5s ease;
+        cursor: pointer;
+        transform: perspective(2000px) rotateY(20deg) translateZ(200px) scale(0.32); /* scale(0.5) = Main Contant size when hamburger-manu is clicked. It will shrink.*/
+        /* perspective defines how far the elemnt is away from the user */
+        /* translateZ pull it towands us by some defiined sizes */
+    }
+
+    @keyframes main-animation {
+        from {
+            transform: translate(0);
+        }
+    
+        to {
+            transform: perspective(2000px) rotateY(20deg) translateZ(200px) scale(0.32);
+        }
+    }
+
+    .container.active .shadow.one {
+        animation: shadow-one 0.6s ease-out;
+        transform: perspective(2000px) rotateY(20deg) translateZ(100px) scale(0.32);
+    }
+    @keyframes shadow-one {
+        0% {
+            transform: translate(0);
+        }
+    
+        5% {
+            transform: perspective(2000px) rotateY(20deg) translateZ(200px) scale(0.32);
+        }
+    
+        100% {
+            transform: perspective(2000px) rotateY(20deg) translateZ(100px) scale(0.32);
+        }
+    }
+
+    .container.active .shadow.two {
+        animation: shadow-two 0.6s ease-out;
+        transform: perspective(2000px) rotateY(20deg) translateZ(30px) scale(0.32);
+    }
+
+    @keyframes shadow-two {
+        0% {
+            transform: translate(0);
+        }
+    
+        20% {
+            transform: perspective(2000px) rotateY(20deg) translateZ(200px) scale(0.32);
+        }
+    
+        100% {
+            transform: perspective(2000px) rotateY(20deg) translateZ(30px) scale(0.32);
+        }
+    }
+
+    /* Hover Main Content */
+    .container.active .main:hover + .shadow.one {
+        transform: perspective(2000px) rotateY(20deg) translateZ(130px) scale(0.32);
+    }
+
+    .container.active .main:hover {
+        transform: perspective(2000px) rotateY(20deg) translateZ(230px) scale(0.32);
+    }
+}
+
+@media (max-width: 324px) {
+    .links {
+        width: 44%;
+    }
+}
+
+@media (max-width: 310px) {
+    .links {
+        width: 48%;
+    }
+    .container.active .main {
+        animation: main-animation 0.5s ease;
+        cursor: pointer;
+        transform: perspective(2000px) rotateY(20deg) translateZ(170px) scale(0.16); /* scale(0.5) = Main Contant size when hamburger-manu is clicked. It will shrink.*/
+        /* perspective defines how far the elemnt is away from the user */
+        /* translateZ pull it towands us by some defiined sizes */
+    }
+
+    @keyframes main-animation {
+        from {
+            transform: translate(0);
+        }
+    
+        to {
+            transform: perspective(2000px) rotateY(20deg) translateZ(170px) scale(0.16);
+        }
+    }
+
+    .container.active .shadow.one {
+        animation: shadow-one 0.6s ease-out;
+        transform: perspective(2000px) rotateY(20deg) translateZ(70px) scale(0.16);
+    }
+    @keyframes shadow-one {
+        0% {
+            transform: translate(0);
+        }
+    
+        5% {
+            transform: perspective(2000px) rotateY(20deg) translateZ(170px) scale(0.16);
+        }
+    
+        100% {
+            transform: perspective(2000px) rotateY(20deg) translateZ(70px) scale(0.16);
+        }
+    }
+
+    .container.active .shadow.two {
+        animation: shadow-two 0.6s ease-out;
+        transform: perspective(2000px) rotateY(20deg) translateZ(4px) scale(0.16);
+    }
+
+    @keyframes shadow-two {
+        0% {
+            transform: translate(0);
+        }
+    
+        20% {
+            transform: perspective(2000px) rotateY(20deg) translateZ(170px) scale(0.16);
+        }
+    
+        100% {
+            transform: perspective(2000px) rotateY(20deg) translateZ(4px) scale(0.16);
+        }
+    }
+
+    /* Hover Main Content */
+    .container.active .main:hover + .shadow.one {
+        transform: perspective(2000px) rotateY(20deg) translateZ(100px) scale(0.17);
+    }
+
+    .container.active .main:hover {
+        transform: perspective(2000px) rotateY(20deg) translateZ(190px) scale(0.17);
+    }
+}
+

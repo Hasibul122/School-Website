@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script 
+        src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+        <!--Tittle-->
+        <title>Login Panel</title>
+        <!--Tittle Icon-->
+        <link rel="icon" href="Login_icon.ico">
+        <link rel="stylesheet" href="login.css" type="text/css">
+ 
+    </head>
+    <body>
+        <div class="container">
+            <div class="forms-container">
+                <div class="signin-signup">
+                    <form action="main.html" class="sign-in-form" id="sign-in">
+                        <h2 class="title">Sign in</h2>
+                        <div class="input-field">
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="Username" pattern="^(?=.{4,20}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?![_.*/;'';\|0-9])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.*/;'';\|])$" 
+                            title="Must contain at least one number, one uppercase and lowercase letter, no space, no special sign, no number at begineeig and at least 4-20 characters" 
+                            required>
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Password" id="log-pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                            title="Must contain at least one number and one uppercase and lowercase letter and at least 8 or more characters"
+                            required>
+                            <span class="eye3">
+                                <i class="fas fa-eye" id="eye3" onclick="toggle3()"></i>
+                            </span>
+
+                        </div>
+                        <input type="submit" value="Login" class="btn solid">
+                        
+
+                        <p class="social-text">Or Sign in with social platforms</p>
+                        <div class="social-media">
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </form>
+
+                    <!--Sign Up-->
+                    <form method="POST" class="sign-up-form" name="google-sheet">
+                        <h2 class="title">Sign up</h2>
+                        <div class="input-field">
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="Username" name="Name"
+                            pattern="^(?=.{4,20}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?![_.*/;'';\|]0-9)(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.*/;'';\|])$"
+                            title="Must contain at least one number, one uppercase and lowercase letter, no space, no special sign, no number at begineeing and at least 4-20 characters"
+                            required>
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" placeholder="Email" name="Email" required>
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-mobile-alt"></i>
+                            <input type="tel" placeholder="Mobile No." name="Mobile" pattern="^\+?([0-9]{2})\)?([0-9]{11})$" 
+                            title="Pattern must be '+88xxxxxxxxxxx'" required>
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-calendar-alt"></i>
+                            <input type="date" placeholder="Birthday"  name="Date"
+                            title="Patten: DD-MM-YYYY">
+                        </div>
+                        
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Password" name="Password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                            title="Must contain at least one number and one uppercase and lowercase letter and at least 8 or more characters"
+                            required>
+                            <span class="eye">
+                                <i class="fas fa-eye" id="eye" onclick="toggle()"></i>
+                            </span>
+                        </div>
+                        <div id="generate" onclick="getPassword();">Generate Password</div>
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Confirm Password" name="Conf-password" id="conf-pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                            title="Must contain at least one number and one uppercase and lowercase letter and at least 8 or more characters"
+                            required>
+                            <span class="eye2">
+                                <i class="fas fa-eye" id="eye2" onclick="toggle2()"></i>
+                            </span>
+                        </div>
+                        <input type="submit" name="submit" value="Sign up" id="button" class="btn solid">
+
+                        <p class="social-text">Or Sign up with social platforms</p>
+                        <div class="social-media">
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!--Animation Panel-->
+            <div class="panel-container">
+                <div class="panel left-panel">
+                    <div class="content">
+                        <h3>Freasher Here?</h3>
+                        <p>Get started with a new account. This will help to get admit in our school.</p>
+                        <button class="btn transparent" id="sign-up-btn">Sign up</button>
+                    </div>
+                    <img src="img/login.svg" class="image" alt="">
+                </div>
+
+                <div class="panel right-panel">
+                    <div class="content">
+                        <h3>One of us?</h3>
+                        <p>Please sign-in with your existent account. This will help to get extra information of our school activity.</p>
+                        <button class="btn transparent" id="sign-in-btn">Sign in</button>
+                    </div>
+                    <img src="img/reg.svg" class="image" alt="">
+                </div>
+            </div>
+        </div>
+
+        <!--Generate Password Javascript-->
+        <script type="text/javascript">
+            function getPassword(){
+                var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+?><:{}[]";
+                var passwordLength = 16;
+                var password = "";
+
+                for(var i=0;i<passwordLength;i++){
+                    var randomNumber = Math.floor(Math.random() * chars.length);
+                    password += chars.substring(randomNumber,randomNumber+1); 
+                }
+                document.getElementById("password").value = password;
+
+            }
+        </script>
+
+        <!--Check Confirm Password-->
+        <script type="text/javascript">
+            document.querySelector('#button').onclick = function() {
+                var password = document.querySelector('#password').value,
+                    confirmPassword = document.querySelector('#conf-pass').value;
+
+                    if(password == "" && confirmPassword == ""){
+                        alert("Password can't be empty!");
+                    }
+                    else if(password != confirmPassword){
+                        alert("Password didn't match!");
+                        return false;
+                    }
+                    else{
+                        return true;
+                    }
+            }
+        </script>
+
+        <!--Get Hidden Password-->
+        <script>
+            var state = false;
+            function toggle(){
+                if(state){
+                    document.getElementById("password").setAttribute("type","password");
+                    document.getElementById("eye").style.color="#7a797e";
+                    state = false;
+                }
+                else{
+                    document.getElementById("password").setAttribute("type","text");
+                    document.getElementById("eye").style.color="#5887ef";
+                    state = true;
+                }
+            }
+        </script>
+        <!--Get Hidden Password 2-->
+        <script>
+            var state = false;
+            function toggle2(){
+            if(state){
+                document.getElementById("conf-pass").setAttribute("type","password");
+                document.getElementById("eye2").style.color="#7a797e";
+                state = false;
+            }
+            else{
+                document.getElementById("conf-pass").setAttribute("type","text");
+                document.getElementById("eye2").style.color="#5887ef";
+                state = true;
+            }
+            }
+        </script>
+
+        <!--Get Hidden Password 3-->
+        <script>
+            var state = false;
+            function toggle3(){
+            if(state){
+                document.getElementById("log-pass").setAttribute("type","password");
+                document.getElementById("eye3").style.color="#7a797e";
+                state = false;
+            }
+            else{
+                document.getElementById("log-pass").setAttribute("type","text");
+                document.getElementById("eye3").style.color="#5887ef";
+                state = true;
+            }
+            }
+        </script>
+
+        <!--Store Data-->
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwtr-gmgSFvaDNFm7eMyrp9Qdhqrr8w7G_zecQaw4rNtLYuk1X8f662/exec'
+            const form = document.forms['google-sheet']
+        
+            form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Your Data is stored! Thanks for register..."))
+                .catch(error => console.error('Error!', error.message))
+            })
+        </script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <!--Login Animation-->
+        <script src="js/log.js"></script>
+    </body>
+
+</html>
+<br><br>
